@@ -34,5 +34,10 @@ public class BlogController {
 //		
 //	}
 	
+	@PostMapping("/create")
+	public ResponseEntity<Blog> createBlog(@RequestBody Blog b){
+		return new ResponseEntity<Blog>(this.service.createBlog(b), HttpStatus.ACCEPTED);
+	}
+	
 	
 }
