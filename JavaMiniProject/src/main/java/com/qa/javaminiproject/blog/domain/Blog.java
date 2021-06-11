@@ -15,9 +15,10 @@ public class Blog {
 	private String textField;
 	private LocalDateTime createdAt;
 	
-	public Blog(Long id, String title, String textField, LocalDateTime createdAt) {
-		super();
-		this.id = id;
+	public Blog() {
+	}
+	
+	public Blog(String title, String textField, LocalDateTime createdAt) {
 		this.title = title;
 		this.textField = textField;
 		this.createdAt = createdAt.now();
