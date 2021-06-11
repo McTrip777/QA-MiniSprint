@@ -26,18 +26,27 @@ public class BlogController {
 	
 	@GetMapping("/byid/{id}")
 	public ResponseEntity<Blog> getBlogById(@PathVariable Long id){
-		return new ResponseEntity<Blog>(this.service.getBlogById(id), HttpStatus.OK);
+		return ResponseEntity.ok(this.service.getBlogById(id));
 	}
 	
-//	@GetMapping("/byentry")
-//	public ResponseEntity<List<Blog>> getBlogByEntry(){
-//		
-//	}
+	@GetMapping("/bytitle/{title}")
+	public ResponseEntity<List<Blog>> getBlogByTitle(@PathVariable String title){
+		return new ResponseEntity<List<Blog>>(this.service.getBlogByTitle(title), HttpStatus.OK);
+	}
 	
 	@PostMapping("/create")
 	public ResponseEntity<Blog> createBlog(@RequestBody Blog b){
 		return new ResponseEntity<Blog>(this.service.createBlog(b), HttpStatus.ACCEPTED);
 	}
 	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Blog> updateBlog(@RequestBody Blog b, @PathVariable Long id){
+		return new ResponseEntity<Blog>(this.service.updateBlog(id, b), HttpStatus.ACCEPTED);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Blog> deleteBlog(@PathVariable Long id){
+		return this.service.deleteBlog(id) ? new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR) :new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
 	
 }
