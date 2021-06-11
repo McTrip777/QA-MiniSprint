@@ -13,7 +13,6 @@ public class BlogService {
 	private BlogRepo repo;
 
 	public BlogService(BlogRepo repo) {
-		super();
 		this.repo = repo;
 	}
 	
@@ -27,6 +26,10 @@ public class BlogService {
 
 	public List<Blog> getBlogByEntry(){
 		return this.repo.findAll();
+	}
+	
+	public Blog createBlog(Blog b) {
+		return this.repo.save(b);
 	}
 }
  

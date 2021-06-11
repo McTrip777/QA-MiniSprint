@@ -2,10 +2,12 @@ package com.qa.javaminiproject.blog.domain;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Blog {
 
 	@Id
@@ -13,15 +15,14 @@ public class Blog {
 	private Long id;
 	private String title;
 	private String textField;
-	private LocalDateTime createdAt;
+	private LocalDateTime createdAt = LocalDateTime.now();
 	
 	public Blog() {
 	}
 	
-	public Blog(String title, String textField, LocalDateTime createdAt) {
+	public Blog(String title, String textField) {
 		this.title = title;
 		this.textField = textField;
-		this.createdAt = createdAt.now();
 	}
 
 	public Long getId() {
