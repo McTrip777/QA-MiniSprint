@@ -1,5 +1,5 @@
 package com.qa.javaminiproject.blog.repo;
 
-public class BlogRepoTest {
+public class BlogRepoUnitTest {
 
 }

@@ -25,6 +25,13 @@ public class Blog {
 		this.textField = textField;
 	}
 
+	public Blog(Long id, String title, String textField, LocalDateTime createdAt) {
+		this.id = id;
+		this.title = title;
+		this.textField = textField;
+		this.createdAt = createdAt;
+	}
+
 	public Long getId() {
 		return id;
 	}
